@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent {label 'linux'}
     tools {
         maven '3.6.2'
         jdk 'jdk8'
@@ -10,6 +10,9 @@ pipeline {
         stage ('Initialize') {
             steps {
                 sh '''
+                    env | grep -e PATH -e JAVA_HOME
+                    which java
+                    java -version
                     echo "PATH = ${PATH}"
                     echo "M2_HOME = ${M2_HOME}"
                 '''
