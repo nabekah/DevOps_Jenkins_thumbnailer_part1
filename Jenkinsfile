@@ -3,9 +3,7 @@ pipeline {
     tools {
         maven '3.6.2'
         jdk 'java_08'
-        mavenSettingsConfig: '383093c1-c59c-42ea-8546-0e88c67701a0'
-       
-           
+        mavenSettingsConfig: '383093c1-c59c-42ea-8546-0e88c67701a0'       
     }
     stages {
         stage ('Initialize') {

@@ -29,12 +29,12 @@
         <repository>
             <id>central</id>
             <name>artifactory-releases</name>
-            <url>http://52.88.93.193:8082/artifactory/libs-release-local</url>
+            <url>http://52.88.93.193:8082/artifactory/c-libs-release</url>
         </repository>
         <snapshotRepository>
             <id>snapshots</id>
             <name>artifactory-snapshots</name>
-            <url>http://52.88.93.193:8082/artifactory/libs-snapshot-local</url>
+            <url>http://52.88.93.193:8082/artifactory/c-libs-snapshot</url>
         </snapshotRepository>
     </distributionManagement>
 
