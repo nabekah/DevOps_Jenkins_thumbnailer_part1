@@ -1,0 +1,23 @@
+FROM jenkins/jenkins:lts-jdk11
+USER root
+RUN apt-get update -qq \
+    && apt-get install -qqy apt-transport-https ca-certificates curl gnupg2 software-properties-common
+RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
+RUN add-apt-repository \
+    "deb [arch=amd64] https://download.docker.com/linux/debian \
+    $(lsb_release -cs) \
+    stable"
+RUN apt-get update  -qq \
+    && apt-cache policy docker-ce \
+    && apt-get install -y docker-ce docker-compose-plugin docker-compose
+RUN usermod -aG docker jenkins
+
+RUN apt-get install wget
+
+RUN wget -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.tar.gz -O /tmp/jdk-8-linux-x64.tar.gz
+
+# RUN apt install unzip zip -y && curl -s "https://get.sdkman.io" | bash
+# SHELL [ "/bin/bash","-c" ]
+# RUN source "$HOME/.sdkman/bin/sdkman-init.sh" && sdk install java 8.0.302-open
+    
+# USER jenkins
